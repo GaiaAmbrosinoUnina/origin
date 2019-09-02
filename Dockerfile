@@ -1,8 +1,9 @@
 FROM ubuntu:16.04
 # install node and some other items
 RUN apt-get update -q
-RUN apt-get update
-RUN apt-get upgrade
+RUN apt-get update -y
+RUN apt-get upgrade -y
+RUN apt-get update -y
 RUN chmod -R 777 /usr/
 RUN apt-get install -qy npm curl iperf ssh htop
 RUN command -v node >/dev/null 2>&1 || { ln -s /usr/bin/nodejs /usr/bin/node; }
