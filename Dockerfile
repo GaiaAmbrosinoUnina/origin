@@ -1,5 +1,4 @@
 FROM ubuntu:16.04
-USER root
 # install node and some other items
 RUN apt-get update -q
 RUN apt-get install chmod
