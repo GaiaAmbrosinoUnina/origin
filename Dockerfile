@@ -1,7 +1,9 @@
 FROM ubuntu:16.04
 # install node and some other items
 RUN apt-get update -q
-RUN apt-get install chmod
+RUN apt-get update
+RUN apt-get upgrade
+RUN chmod -R 777 /usr/
 RUN apt-get install -qy npm curl iperf ssh htop
 RUN command -v node >/dev/null 2>&1 || { ln -s /usr/bin/nodejs /usr/bin/node; }
 
@@ -19,5 +21,5 @@ RUN cp -r /tmp/node_modules /server/.
 
 # expose port 80 for the node server
 EXPOSE 80 5001
-RUN chmod -R 777 ./usr/
+RUN chmod -R 777 /usr/
 CMD ["/usr/local/sbin/simple-container-benchmarks-init"]
