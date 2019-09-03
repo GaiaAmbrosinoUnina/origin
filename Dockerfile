@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM ubuntu:16.04
 # install node and some other items
 RUN apt-get update -q
 #RUN apt-get update -y
