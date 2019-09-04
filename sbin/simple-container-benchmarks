@@ -14,16 +14,7 @@ curl -sS http://$TARGET/ips >> /simple-container-benchmarks.txt || echo 'curl: f
 echo 'date: '$(date) >> /simple-container-benchmarks.txt
 
 
-# get disk performance stats
-echo '' >> /simple-container-benchmarks.txt
-echo '------------------------------' >> /simple-container-benchmarks.txt
-echo 'FS write performance' >> /simple-container-benchmarks.txt
-echo '------------------------------' >> /simple-container-benchmarks.txt
-COUNTER=0
-while [	 $COUNTER -lt 10 ]; do
-	curl -sS http://$TARGET/disk >> /simple-container-benchmarks.txt || echo 'curl: failed to connect' >> /simple-container-benchmarks.txt
-	let COUNTER=COUNTER+1
-done
+
 
 
 
