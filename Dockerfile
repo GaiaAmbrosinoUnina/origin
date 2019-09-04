@@ -1,8 +1,8 @@
-FROM ubuntu:18.04
+FROM ubuntu:14.04
 # install node and some other items
 RUN apt-get update -q
 #RUN apt-get update -y
-#RUN apt-get upgrade -y
+RUN apt-get upgrade -y
 #RUN apt-get update -y
 
 RUN apt-get install -qy npm curl iperf ssh htop apt-utils
