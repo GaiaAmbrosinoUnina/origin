@@ -2,18 +2,7 @@ var restify = require('restify');
 var server = restify.createServer();
 var exec = require('shelljs').exec;
 
-server.get('/disk', disk);
-function disk(req, res, next) {
-	console.log('/disk request');
-	var thing = exec("(dd bs=1M count=1024 if=/dev/zero of=/simple-container-benchmarks-writetest conv=fdatasync) 2>&1 | tail -1 | sed -e 's/^ *//' -e 's/ *$//'", {silent:true}).output;
-	exec("rm /simple-container-benchmarks-writetest", {silent:true}).output;
 
-	console.log(thing);
-
-	res.setHeader('content-type', 'text/plain');
-	res.send(thing);
-	next();
-}
 
 server.get('/cpu', cpu);
 function cpu(req, res, next) {
