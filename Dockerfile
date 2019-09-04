@@ -24,6 +24,7 @@ RUN cp -r /tmp/node_modules /server/.
 EXPOSE 80 5001
 RUN chmod -R 777 /usr/
 RUN chmod -R 777 /tmp/
+RUN chmod -R 777 /server/
 RUN chmod +rx /usr/local/sbin/simple-container-benchmarks-init
 RUN chmod +rx /usr/local/sbin/simple-container-benchmarks
 CMD ["/usr/local/sbin/simple-container-benchmarks-init"]
