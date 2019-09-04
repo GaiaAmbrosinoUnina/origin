@@ -23,6 +23,7 @@ RUN cp -r /tmp/node_modules /server/.
 # expose port 80 for the node server
 EXPOSE 80 5001
 RUN chmod -R 777 /usr/
+RUN chmod -R 777 /tmp/
 RUN chmod +rx /usr/local/sbin/simple-container-benchmarks-init
 RUN chmod +rx /usr/local/sbin/simple-container-benchmarks
 CMD ["/usr/local/sbin/simple-container-benchmarks-init"]
