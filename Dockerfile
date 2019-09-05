@@ -5,8 +5,14 @@ RUN apt-get update -q
 RUN apt-get upgrade -y
 #RUN apt-get update -y
 
-RUN apt-get install -qy npm curl iperf ssh htop apt-utils
+RUN apt-get install -qy curl iperf ssh htop apt-utils
+#cancellato nvm
 RUN command -v node >/dev/null 2>&1 || { ln -s /usr/bin/nodejs /usr/bin/node; }
+
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh
+RUN bash
+RUN nvm install 10.16
+RUN npm config set strict-ssl false
 
 # the node dependencies for our node server app
 # using caching suggestions per http://bitjudo.com/blog/2014/03/13/building-efficient-dockerfiles-node-dot-js/
