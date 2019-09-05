@@ -11,7 +11,7 @@ RUN command -v node >/dev/null 2>&1 || { ln -s /usr/bin/nodejs /usr/bin/node; }
 
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh
 RUN bash
-RUN nvm install 10.16
+RUN nvm install v10.16
 RUN npm config set strict-ssl false
 
 # the node dependencies for our node server app
