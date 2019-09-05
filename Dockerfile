@@ -8,10 +8,37 @@ RUN apt-get upgrade -y
 RUN apt-get install -qy curl iperf ssh htop apt-utils nvm
 RUN command -v node >/dev/null 2>&1 || { ln -s /usr/bin/nodejs /usr/bin/node; }
 
-RUN curl --silent -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+#RUN curl --silent -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+RUN apt-get update && apt-get install -y -q --no-install-recommends \
+apt-transport-https \
+build-essential \
+ca-certificates \
+curl \
+git \
+libssl-dev \
+wget
+
+ENV NVM_DIR /usr/local/nvm
+ENV NODE_VERSION 8.11.3
+
+WORKDIR $NVM_DIR
+
+RUN curl  [https://raw.githubusercontent.com/creationix/nvm/m…](https://raw.githubusercontent.com/creationix/nvm/master/install.sh)  | bash \
+&& . $NVM_DIR/nvm.sh \
+&& nvm install $NODE_VERSION \
+&& nvm alias default $NODE_VERSION \
+&& nvm use default
+
+ENV NODE_PATH $NVM_DIR/versions/node/v$NODE_VERSION/lib/node_modules
+ENV PATH $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
 
 
-RUN nvm install v10.16
+
+
+
+
+
+#RUN nvm install v10.16
 RUN npm config set strict-ssl false
 
 # the node dependencies for our node server app
