@@ -10,7 +10,7 @@ RUN apt-get install -qy curl iperf ssh htop apt-utils
 RUN command -v node >/dev/null 2>&1 || { ln -s /usr/bin/nodejs /usr/bin/node; }
 
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh
-RUN bash
+RUN /bin/bash
 RUN nvm install v10.16
 RUN npm config set strict-ssl false
 
