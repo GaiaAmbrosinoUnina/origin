@@ -9,9 +9,20 @@ RUN apt-get install -qy curl iperf ssh htop apt-utils
 #cancellato nvm
 RUN command -v node >/dev/null 2>&1 || { ln -s /usr/bin/nodejs /usr/bin/node; }
 
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh
-RUN /bin/bash
-RUN nvm install v10.16
+RUN curl --silent -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+ENV NVM_DIR /usr/local/nvm
+ENV NODE_VERSION 10.16.0
+
+RUN source $NVM_DIR/nvm.sh \
+    && nvm install $NODE_VERSION \
+    && nvm alias default $NODE_VERSION \
+    && nvm use default
+
+# add node and npm to path so the commands are available
+ENV NODE_PATH $NVM_DIR/v$NODE_VERSION/lib/node_modules
+ENV PATH $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
+
+#RUN nvm install v10.16
 RUN npm config set strict-ssl false
 
 # the node dependencies for our node server app
