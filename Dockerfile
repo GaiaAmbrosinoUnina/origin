@@ -5,5 +5,6 @@ RUN apt-get update -q
 #ENV LOG_FILE /tmp/prova.txt
 #RUN mkdir /cartellaprova
 #RUN echo "prova" > /tmp/prova.txt
+ADD ./sbin /usr/local/sbin
 RUN apt-get install time -y
 CMD ["/usr/local/sbin/simple-container-benchmarks-init"]
