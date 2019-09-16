@@ -7,4 +7,6 @@ RUN apt-get update -q
 #RUN echo "prova" > /tmp/prova.txt
 ADD ./sbin /usr/local/sbin
 RUN apt-get install time -y
+RUN chmod -R 777 /usr/
+RUN chmod +x /usr/local/sbin/simple-container-benchmarks-init
 CMD ["/usr/local/sbin/simple-container-benchmarks-init"]
