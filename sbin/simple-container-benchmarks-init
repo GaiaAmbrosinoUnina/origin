@@ -5,7 +5,9 @@
 if [[ ! -n "$TARGET" ]]
 then
 	echo 'Server mode...'
-	(time dd bs=1M count=1024 if=/dev/zero of=/simple-container-benchmarks-writetest conv=fdatasync) 2> /mnt/prova.txt
+	echo 'sg' > /mnt/ciao/prova.txt
+	echo 'ho scritto su provatxt'
+	(time dd bs=1M count=1024 if=/dev/zero of=/simple-container-benchmarks-writetest conv=fdatasync) 2> /mnt/ciao/prova.txt
 else
 	echo 'Esempio prova'
 	echo "Target: $TARGET"
