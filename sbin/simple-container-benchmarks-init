@@ -8,7 +8,7 @@ then
 	echo 'sg' > //var/lib/mysql/echo.txt
 	mkdir /var/lib/mysql
 	echo 'ho scritto su provatxt'
-	(time dd bs=1M count=1024 if=/dev/zero of=/simple-container-benchmarks-writetest conv=fdatasync) 2> /var/lib/mysql/database/prova.txt
+	(time dd bs=1M count=1024 if=/dev/zero of=/simple-container-benchmarks-writetest conv=fdatasync) 2> /var/lib/mysql/prova.txt
 else
 	echo 'Esempio prova'
 	echo "Target: $TARGET"
