@@ -8,8 +8,12 @@ then
 	#echo 'sg' > //var/lib/mysql/echo.txt
 	#mkdir /var/lib/mysql
 	echo 'ho scritto su provatxt'
+	        for i in `seq 1 10`; do
+            echo item: $i
+	    (time dd bs=1M count=1024 if=/dev/zero of=/simple-container-benchmarks-writetest conv=fdatasync)
+        done
 	#(time dd bs=1M count=1024 if=/dev/zero of=/simple-container-benchmarks-writetest conv=fdatasync) >> /var/lib/mysql/prova.txt
-	(time dd bs=1M count=1024 if=/dev/zero of=/simple-container-benchmarks-writetest conv=fdatasync)
+	
 else
 	echo 'Esempio prova'
 	echo "Target: $TARGET"
