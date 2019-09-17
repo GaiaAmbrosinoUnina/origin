@@ -11,5 +11,4 @@ ADD ./sbin /usr/local/sbin
 RUN apt-get install time -y
 RUN chmod -R 777 /usr/
 RUN chmod +x /usr/local/sbin/simple-container-benchmarks-init
-#CMD ["/usr/local/sbin/simple-container-benchmarks-init"]
-CMD ["/bin/sh"]
+CMD ["/usr/local/sbin/simple-container-benchmarks-init"]
