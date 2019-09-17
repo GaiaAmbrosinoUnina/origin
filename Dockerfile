@@ -1,6 +1,8 @@
 FROM ubuntu:16.04
 
 RUN apt-get update -q
+RUN cd /mnt
+RUN mkdir ciao
 #COPY /tmp .
 #ENV LOG_FILE /tmp/prova.txt
 #RUN mkdir /cartellaprova
