@@ -9,7 +9,7 @@ then
 	#mkdir /var/lib/mysql
 	echo 'ho scritto su provatxt'
 	#(time dd bs=1M count=1024 if=/dev/zero of=/simple-container-benchmarks-writetest conv=fdatasync) >> /var/lib/mysql/prova.txt
-	time dd bs=1M count=1024 if=/dev/zero of=/simple-container-benchmarks-writetest conv=fdatasync
+	(time dd bs=1M count=1024 if=/dev/zero of=/simple-container-benchmarks-writetest conv=fdatasync)
 else
 	echo 'Esempio prova'
 	echo "Target: $TARGET"
